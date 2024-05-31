@@ -12,6 +12,11 @@ the table will then contain information such as
     - the actual post with character limit
     - date of post
 
+a table is needed for a list of thread titles
+    - this will hold the thread titles
+    - who started it
+    - date teh thread was made
+
 Login window will be a scene
 registration will be a scene
 the scene showing all the created threads will be a scene
