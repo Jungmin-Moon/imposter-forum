@@ -5,6 +5,20 @@ import java.sql.*;
 
 public class Registration {
 
+    protected String registerUser(String userName, Connection conn) {
+        if (alreadyExists(userName, conn)) {
+            return "This user is already registered.";
+        } else {
+            addToTable(userName, conn);
+
+            if (checkAdded(userName, conn)) {
+                return "Successfully registered to the forum not forum.";
+            }
+
+            return "Something went wrong.";
+        }
+    }
+
     protected boolean alreadyExists(String userName, Connection conn) {
         boolean exist = false;
 
@@ -25,4 +39,14 @@ public class Registration {
     }
 
     //create user table
+
+    protected void addToTable(String userName, Connection conn) {
+
+    }
+
+    protected boolean checkAdded(String userName, Connection conn) {
+
+
+        return false;
+    }
 }
