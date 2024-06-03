@@ -10,7 +10,7 @@ public class Connector {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/employee_information",
+                    "jdbc:mysql://localhost:3306/forum",
                     "luckyseven", "L}1h0#40iF40xEjYFB"
             );
 

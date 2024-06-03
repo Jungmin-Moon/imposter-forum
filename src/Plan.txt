@@ -1,4 +1,4 @@
-
+Task Completed
 Tables needed for user information
     - user name
     - password
@@ -6,12 +6,14 @@ Tables needed for user information
     - join date
     - posts made
 
+
 A table for each time a new thread is made
 the table will then contain information such as
     - user who made the post
     - the actual post with character limit
     - date of post
 
+Completed
 a table is needed for a list of thread titles
     - this will hold the thread titles
     - who started it
