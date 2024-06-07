@@ -27,7 +27,7 @@ public class Forbidden_Passwords {
     }
 
 
-    public boolean comparePassword(String potentialPassword) {
+    protected boolean comparePassword(String potentialPassword) {
 
         boolean forbidden = false;
 

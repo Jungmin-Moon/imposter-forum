@@ -48,6 +48,7 @@ public class Registration {
         try {
             LocalDate currentDate = LocalDate.now();
             String modDate = new SimpleDateFormat("yyyy-MM-dd").format(currentDate);
+
             String securePass = Password_Validation.generatePasswordHash(password);
             String query = "Insert into user(username, password, email, datejoined) values ('" +
                     userName + "', '" + securePass + "', '" + email + "', '" + modDate + "');";
