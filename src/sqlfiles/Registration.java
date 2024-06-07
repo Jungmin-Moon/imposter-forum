@@ -1,6 +1,8 @@
 package sqlfiles;
 import com.mysql.cj.protocol.Resultset;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -46,13 +48,14 @@ public class Registration {
         try {
             LocalDate currentDate = LocalDate.now();
             String modDate = new SimpleDateFormat("yyyy-MM-dd").format(currentDate);
+            String securePass = Password_Validation.generatePasswordHash(password);
             String query = "Insert into user(username, password, email, datejoined) values ('" +
-                    userName + "', '" + password + "', '" + email + "', '" + modDate + "');";
+                    userName + "', '" + securePass + "', '" + email + "', '" + modDate + "');";
 
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(query);
 
-        } catch (SQLException e) {
+        } catch (SQLException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             throw new RuntimeException(e);
         }
     }

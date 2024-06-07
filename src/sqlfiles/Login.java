@@ -1,6 +1,8 @@
 package sqlfiles;
 import userfile.User;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 
 public class Login {
@@ -50,10 +52,14 @@ public class Login {
             ResultSet set = stmt.executeQuery(checkPass);
 
             while (set.next()) {
-                correctPass = true;
+                if (Password_Validation.validatePass(password, set.getString(1))) {
+                    correctPass = true;
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException();
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException(e);
         }
 
         return correctPass;
