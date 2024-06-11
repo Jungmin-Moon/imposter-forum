@@ -14,6 +14,12 @@ import sqlfiles.Registration;
 public class Registration_Scene {
     public static void createRegistrationScene(Stage stage, Connection conn) {
 
+        GridPane registration = new GridPane();
+        registration.setAlignment(Pos.CENTER);
+        registration.setHgap(10);
+        registration.setVgap(10);
+        registration.setPadding(new Insets(25, 25, 25, 25));
+
         Label username = new Label("Username:");
         Label password = new Label("Password:");
         Label passwordAgain = new Label("Enter your password again:");
@@ -28,6 +34,12 @@ public class Registration_Scene {
 
         Button registerNewUser = new Button("Register");
         Button goBack = new Button("Back to Login");
+
+        registration.addRow(0, username, usernameText);
+        registration.addRow(2, password, passwordText);
+        registration.addRow(4, passwordAgain, passwordAgainText);
+        registration.addRow(6, email, emailText);
+        registration.addRow(8, registerNewUser, goBack);
 
         goBack.setOnAction(e -> Login_Scene.createLoginScene(stage, conn));
 

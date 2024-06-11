@@ -43,10 +43,10 @@ public class Login_Scene {
         Text errorText = new Text("");
 
         login.addRow(0, userNameLabel, userNameField);
-        login.addRow(1, passwordLabel, passwordField);
-        login.addRow(2, loginUser);
-        login.addRow(3, registerUser);
-        login.addRow(5, errorText);
+        login.addRow(2, passwordLabel, passwordField);
+        login.addRow(4, loginUser);
+        login.addRow(6, registerUser);
+        login.addRow(8, errorText);
 
         loginUser.setOnAction(e -> {
             String getUserName = Login.loginUser(userNameField.getText(), passwordField.getText(), conn);
