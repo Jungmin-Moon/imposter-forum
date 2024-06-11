@@ -13,10 +13,9 @@ public class Main_Starter extends Application {
 
      Connection connection = connecter.establishConnection();
 
-     User user = null;
 
     public void start(Stage primaryStage) {
-        primaryStage.setScene(Login_Scene.createLoginScene(primaryStage, user, connection));
+        primaryStage.setScene(Login_Scene.createLoginScene(primaryStage, connection));
         primaryStage.show();
     }
 

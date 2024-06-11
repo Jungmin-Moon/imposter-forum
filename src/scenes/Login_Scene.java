@@ -21,7 +21,9 @@ public class Login_Scene {
 
 
 
-    public static Scene createLoginScene(Stage stage, User user, Connection conn) {
+    public static Scene createLoginScene(Stage stage, Connection conn) {
+        User user = null;
+
         GridPane login = new GridPane();
 
         login.setAlignment(Pos.CENTER);
