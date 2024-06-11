@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import sqlfiles.Registration;
 
 public class Registration_Scene {
     public static void createRegistrationScene(Stage stage, Connection conn) {
@@ -31,7 +32,11 @@ public class Registration_Scene {
         goBack.setOnAction(e -> Login_Scene.createLoginScene(stage, conn));
 
         registerNewUser.setOnAction(e -> {
-
+            if (passwordText.getText().equalsIgnoreCase(passwordAgainText.getText()))
+                resultText.setText(Registration.registerUser(usernameText.getText(), passwordText.getText(), emailText.getText(), conn));
+            else {
+                resultText.setText("The passwords do not match.");
+            }
         });
     }
 }

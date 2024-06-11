@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class Registration {
 
-    protected String registerUser(String userName, String password, String email, Connection conn) {
+    public static String registerUser(String userName, String password, String email, Connection conn) {
         if (alreadyExists(userName, conn)) {
             return "This user is already registered.";
         } else {
@@ -23,7 +23,7 @@ public class Registration {
         }
     }
 
-    protected boolean alreadyExists(String userName, Connection conn) {
+    protected static boolean alreadyExists(String userName, Connection conn) {
         boolean exist = false;
 
         try {
@@ -44,7 +44,7 @@ public class Registration {
 
     //create user table
 
-    protected void addToTable(String userName, String password, String email, Connection conn) {
+    protected static void addToTable(String userName, String password, String email, Connection conn) {
         try {
             LocalDate currentDate = LocalDate.now();
             String modDate = new SimpleDateFormat("yyyy-MM-dd").format(currentDate);
@@ -61,7 +61,7 @@ public class Registration {
         }
     }
 
-    protected boolean checkAdded(String userName, Connection conn) {
+    protected static boolean checkAdded(String userName, Connection conn) {
 
         try {
             String query = "Select * from user where username = '" + userName + "';";
