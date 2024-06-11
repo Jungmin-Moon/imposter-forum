@@ -3,6 +3,7 @@ package userfile;
 public class User {
 
     private String userName;
+    private int numberPosts = 0;
 
     public User(String userName) {
         this.userName = userName;
@@ -12,5 +13,8 @@ public class User {
         return userName;
     }
 
+    public int getNumberPosts() {
+        return numberPosts;
+    }
 
 }

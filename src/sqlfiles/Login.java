@@ -8,7 +8,7 @@ import java.sql.*;
 public class Login {
 
 
-    public String loginUser(String userName, String password, Connection conn) {
+    public static String loginUser(String userName, String password, Connection conn) {
         boolean checkName = validateUserName(userName, conn);
         boolean pass = validatePassword(password, conn);
 
@@ -25,7 +25,7 @@ public class Login {
     }
 
 
-    public boolean validateUserName(String userName, Connection conn) {
+    public static boolean validateUserName(String userName, Connection conn) {
         boolean correctUser = false;
 
         try {
@@ -43,7 +43,7 @@ public class Login {
         return correctUser;
     }
 
-    public boolean validatePassword(String password, Connection conn) {
+    public static boolean validatePassword(String password, Connection conn) {
         boolean correctPass = false;
 
         try {

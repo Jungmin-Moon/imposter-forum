@@ -6,7 +6,7 @@ public class Connector {
 
     Connection connection = null;
 
-    protected Connection establishConnection () {
+    public Connection establishConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
@@ -23,7 +23,7 @@ public class Connector {
         return connection;
     }
 
-    protected void closeConnection() throws SQLException{
+    public void closeConnection() throws SQLException{
         connection.close();
     }
 }

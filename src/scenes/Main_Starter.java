@@ -1,11 +1,22 @@
 package scenes;
 
+import databaseconnector.Connector;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import userfile.User;
+
+import java.sql.*;
 
 public class Main_Starter extends Application {
+
+     Connector connecter = new Connector();
+
+     Connection connection = connecter.establishConnection();
+
+     User user = null;
+
     public void start(Stage primaryStage) {
-        primaryStage.setScene(Login_Scene.createLoginScene(primaryStage));
+        primaryStage.setScene(Login_Scene.createLoginScene(primaryStage, user, connection));
         primaryStage.show();
     }
 
