@@ -12,7 +12,7 @@ import javafx.scene.layout.*;
 import sqlfiles.Registration;
 
 public class Registration_Scene {
-    public static void createRegistrationScene(Stage stage, Connection conn) {
+    public static Scene createRegistrationScene(Stage stage, Connection conn) {
 
         GridPane registration = new GridPane();
         registration.setAlignment(Pos.CENTER);
@@ -50,5 +50,7 @@ public class Registration_Scene {
                 resultText.setText("The passwords do not match.");
             }
         });
+
+        return new Scene(registration, 600, 600);
     }
 }
