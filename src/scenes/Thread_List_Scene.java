@@ -1,5 +1,6 @@
 package scenes;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -24,26 +25,27 @@ public class Thread_List_Scene {
 
         threadPane.setCenter(threadsMiddle);
 
-        Text placeHolder = new Text();
+        Label placeHolder = new Label();
 
-        Text sceneTitle = new Text();
-        Label threadText = new Label();
-        StringBuilder list = new StringBuilder();
+        Label sceneTitle = new Label();
+
+        Text spacing = new Text("==========");
 
         if (listOfThreads.isEmpty()) {
             placeHolder.setText("There are currently no threads.");
+            placeHolder.setAlignment(Pos.CENTER);
         } else {
             sceneTitle.setText("====================Threads====================");
+            sceneTitle.setAlignment(Pos.CENTER);
             for (int i = 0; i < listOfThreads.size(); i++) {
-                list.append(listOfThreads.get(i).getWhoStarted())
-                        .append("============")
-                        .append(listOfThreads.get(i).getName())
-                        .append("============")
-                        .append(listOfThreads.get(i).getDateCreated());
+                Hyperlink title = new Hyperlink(listOfThreads.get(i).getName());
+                Text madeByUser = new Text(listOfThreads.get(i).getWhoStarted());
+                Text dateMade = new Text(listOfThreads.get(i).getDateCreated().toString());
+                threadsMiddle.addRow(i, madeByUser, spacing, title, spacing, dateMade);
             }
-
-            threadText.setText(list.toString());
         }
+
+        Button createThread = new Button("Create new thread");
 
         return new Scene(threadPane, 600, 600);
 
