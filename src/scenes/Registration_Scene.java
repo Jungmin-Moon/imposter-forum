@@ -41,7 +41,7 @@ public class Registration_Scene {
         registration.addRow(6, email, emailText);
         registration.addRow(8, registerNewUser, goBack);
 
-        goBack.setOnAction(e -> Login_Scene.createLoginScene(stage, conn));
+        goBack.setOnAction(e -> stage.setScene(Login_Scene.createLoginScene(stage, conn)));
 
         registerNewUser.setOnAction(e -> {
             if (passwordText.getText().equalsIgnoreCase(passwordAgainText.getText()))

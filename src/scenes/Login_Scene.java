@@ -52,14 +52,14 @@ public class Login_Scene {
             String getUserName = Login.loginUser(userNameField.getText(), passwordField.getText(), conn);
 
             if (getUserName.contains("incorrect")) {
-                errorText.setText("getUserName");
+                errorText.setText("Incorrect username or password.");
             } else {
                 login(getUserName, user, stage, conn);
             }
         });
 
         registerUser.setOnAction(e -> {
-            Registration_Scene.createRegistrationScene(stage, conn);
+            stage.setScene(Registration_Scene.createRegistrationScene(stage, conn));
         });
 
         Scene loginScene = new Scene(login, 700, 700);

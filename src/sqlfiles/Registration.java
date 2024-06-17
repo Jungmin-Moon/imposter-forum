@@ -1,11 +1,12 @@
 package sqlfiles;
-import com.mysql.cj.protocol.Resultset;
+
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Registration {
 
@@ -27,7 +28,7 @@ public class Registration {
         boolean exist = false;
 
         try {
-            String query = "Select * from users where username = '" + userName + "';";
+            String query = "Select * from user where username = '" + userName + "';";
 
             Statement stmt = conn.createStatement();
             ResultSet rSet = stmt.executeQuery(query);
@@ -47,11 +48,12 @@ public class Registration {
     protected static void addToTable(String userName, String password, String email, Connection conn) {
         try {
             LocalDate currentDate = LocalDate.now();
-            String modDate = new SimpleDateFormat("yyyy-MM-dd").format(currentDate);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 
             String securePass = Password_Validation.generatePasswordHash(password);
             String query = "Insert into user(username, password, email, datejoined) values ('" +
-                    userName + "', '" + securePass + "', '" + email + "', '" + modDate + "');";
+                    userName + "', '" + securePass + "', '" + email + "', '" + dtf.format(currentDate) + "');";
 
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(query);

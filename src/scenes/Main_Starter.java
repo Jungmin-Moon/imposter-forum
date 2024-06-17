@@ -3,7 +3,6 @@ package scenes;
 import databaseconnector.Connector;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import userfile.User;
 
 import java.sql.*;
 
